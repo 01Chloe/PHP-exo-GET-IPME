@@ -20,6 +20,7 @@ if(!isset($_GET['film_id'])){
             <?= $res['title'] ?>
         </h1>
         <img src="<?= $res['image'] ?>" alt="" class="w-25 d-block mx-auto">
+        <h2 class="my-2"><span class="fs-4 fw-normal">Titre original : </span><?= $res['original_title'] ?></h2>
         <p class="my-4 text-center">
             <?= $res['description'] ?>
         </p>
@@ -35,14 +36,18 @@ if(!isset($_GET['film_id'])){
             </p>
         </div>
         <ul class="list-group my-4">
-            <?php foreach ($res['people'] as $key => $people) : ?>
-                <?php if(isset($res['people'][$key]['name'])) : ?>
+            <?php $check_id = explode("/", $res['people'][0]) ?>
+            <?php if($res['people'] && $check_id[4]) : ?>
+                <?php foreach ($res['people'] as $key => $people) : ?>
                     <li class="list-group-item text-center">
                         <?php $pers = json_decode(file_get_contents($res['people'][$key]), true) ?>
-                        <?= $pers['name'] ?>
+                        <?php $perso_id = explode("/", $res['people'][$key]) ?>
+                        <a href="personItem.php?person_id=<?= $perso_id[4]?>">
+                            <?= $pers['name'] ?>
+                        </a>
                     </li>
-                <?php endif; ?>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </ul>
     </div>
 <?php include 'footer.php' ?>
