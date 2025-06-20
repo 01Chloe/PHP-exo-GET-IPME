@@ -12,9 +12,9 @@ $res = json_decode(file_get_contents("https://ghibliapi.vercel.app/locations"), 
                     <div class="card my-4" style="width: 18rem;">
                         <div class="card-body">
                             <div class="card-title">
-                                <p>
+                                <h2>
                                     <?= $item['name'] ?>
-                                </p>
+                                </h2>
                             </div>
                             <div class="card-text">
                                 <a href="itemLocation.php?location_id=<?= $item['id'] ?>">Voir la localisation</a>

@@ -17,9 +17,9 @@ $res = json_decode(file_get_contents("https://ghibliapi.vercel.app/films"), true
                             <img src="<?= $item['image'] ?>" alt=""  class="w-100">
                         </div>
                         <div class="card-title">
-                            <p>
+                            <h2 class="my-2">
                                 <?= $item['title'] ?>
-                            </p>
+                            </h2>
                         </div>
                         <div class="card-text">
                             <p>
