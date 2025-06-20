@@ -24,6 +24,9 @@
                 <li>
                     <a href="persons.php" class="nav-link <?php if($active === "person") : ?>active" <?php endif; ?> aria-current="page">Voir les personnages</a>
                 </li>
+                <li>
+                    <a href="vehicles.php" class="nav-link <?php if($active === "vehicles") : ?>active" <?php endif; ?> aria-current="page">Voir les véhicules</a>
+                </li>
             </ul>
         </div>
     </nav>
