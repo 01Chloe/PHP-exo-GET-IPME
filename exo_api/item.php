@@ -1,4 +1,5 @@
 <?php
+session_start();
 $active = 'movie';
 
 $index = "index.php";
@@ -33,5 +34,16 @@ if(!isset($_GET['film_id'])){
                 <?= $res['running_time'] ?>
             </p>
         </div>
+        <ul class="list-group my-4">
+            <?php foreach ($res['people'] as $key => $people) : ?>
+                <?php if(isset($res['people'][$key]['name'])) : ?>
+                    <li class="list-group-item text-center">
+                        <?php $pers = json_decode(file_get_contents($res['people'][$key]), true) ?>
+                        <?= $pers['name'] ?>
+                    </li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </ul>
+    </div>
 <?php include 'footer.php' ?>
 
